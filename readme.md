@@ -27,7 +27,7 @@ This project is a **Sign Language Recognition system** using a **Convolutional N
 
 ## Project Structure  
 - asl_cnn_model.h5  → Trained CNN model
-- asl_app.ipynb  → 
+- asl_app.ipynb  → Model training script
 - app_gui.py  → Streamlit app for prediction
 - readme.md  → Project documentation
 - asl_alphabet_train/  → Training dataset (folders A-Z, nothing, space, delete)
