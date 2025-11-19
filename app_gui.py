@@ -14,9 +14,8 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import json
 
-# -------------------------
+
 # CONFIG - change if needed
-# -------------------------
 MODEL_PATH = "asl_cnn_model.h5"    # path to your saved model (change if necessary)
 LABELS_PATH = "labels.json"        # optional file that maps class indices to label names
 IMG_SIZE = 64                      # must match training target_size
@@ -24,9 +23,7 @@ TIMEZONE = "Asia/Kolkata"
 START_TIME = time(18, 0)  # 6:00 PM
 END_TIME = time(22, 0)    # 10:00 PM
 
-# -------------------------
 # Helpers
-# -------------------------
 @st.cache_resource
 def load_asl_model(path):
     if not os.path.exists(path):
@@ -76,9 +73,7 @@ def is_within_time_window(tz_name=TIMEZONE):
     # supports ranges that do not cross midnight (our case 18:00-22:00)
     return START_TIME <= now_t <= END_TIME, now
 
-# -------------------------
 # App UI
-# -------------------------
 st.set_page_config(page_title="ASL Recognizer (6pm-10pm)", layout="centered")
 st.title("ASL Recognizer — Image & Camera (Active 6:00 PM → 10:00 PM Asia/Kolkata)")
 st.caption("Upload an image or use the camera to predict a sign. Predictions allowed only between 6 PM and 10 PM (Asia/Kolkata).")
